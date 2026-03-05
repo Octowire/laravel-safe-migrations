@@ -7,6 +7,7 @@ namespace Octowire\SafeMigrations\Snapshots;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Support\Facades\DB;
 use Octowire\SafeMigrations\Snapshots\Introspectors\MySqlIntrospector;
+use Octowire\SafeMigrations\Snapshots\Introspectors\PostgresIntrospector;
 use Octowire\SafeMigrations\Snapshots\Introspectors\SqliteIntrospector;
 use RuntimeException;
 
@@ -20,6 +21,7 @@ final class IntrospectorFactory
         return match ($connection->getDriverName()) {
             'sqlite' => new SqliteIntrospector($connection),
             'mysql', 'mariadb' => new MySqlIntrospector($connection),
+            'pgsql' => new PostgresIntrospector($connection),
             default => throw new RuntimeException(sprintf(
                 'safe-migrations: driver "%s" is not supported for schema snapshots.',
                 $connection->getDriverName()
