@@ -6,6 +6,7 @@ namespace Octowire\SafeMigrations;
 
 use Illuminate\Support\ServiceProvider;
 use Octowire\SafeMigrations\Console\SafeRollbackCommand;
+use Octowire\SafeMigrations\Console\SnapshotCommand;
 
 final class SafeMigrationsServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,7 @@ final class SafeMigrationsServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 SafeRollbackCommand::class,
+                SnapshotCommand::class,
             ]);
         }
     }
