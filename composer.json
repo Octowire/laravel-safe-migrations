@@ -1,0 +1,48 @@
+{
+  "name": "octowire/laravel-safe-migrations",
+  "description": "Safer database migrations for Laravel: rollback guard + snapshots + expand/contract workflow.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": ["laravel", "migrations", "database", "safety", "rollback", "schema"],
+  "authors": [
+    {
+      "name": "Octowire",
+      "homepage": "https://github.com/Octowire"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "^10.0|^11.0|^12.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.0|^9.0|^10.0",
+    "pestphp/pest": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Octowire\\SafeMigrations\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Octowire\\SafeMigrations\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Octowire\\SafeMigrations\\SafeMigrationsServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}

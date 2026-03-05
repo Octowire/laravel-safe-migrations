@@ -1,0 +1,7 @@
+* text=auto
+
+/tests export-ignore
+/.github export-ignore
+/.idea export-ignore
+/.vscode export-ignore
+phpunit.xml.dist export-ignore
